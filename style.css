@@ -71,8 +71,19 @@ body {
 }
 
 .space_key {
-  max-width: 600px;
+  max-width: 388px;
   width: 100%;
+}
+
+.arrow_up,
+.arrow_down {
+  height: 28px;
+}
+
+.arrow_down {
+  position: absolute;
+  left: 66.3%;
+  bottom: 0%;
 }
 
 .text {
@@ -204,13 +215,13 @@ body.active {
   height: 100%;
 }
 
+/* 
 .keys:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-.keys:active {
-  background-color: #333;
-}
+	background-color: #333;
+	color: #fff;
+ }
+ .keys:active {
+	background-color: #333;
+ } */
 
 /*# sourceMappingURL=style.css.map */

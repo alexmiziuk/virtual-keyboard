@@ -70,8 +70,17 @@ body {
 }
 
 .space_key {
-	max-width: 600px;
+	max-width: 388px;
 	width: 100%;
+}
+.arrow_up,
+.arrow_down {
+	height: 28px;
+}
+.arrow_down {
+	position: absolute;
+	left: 66.3%;
+	bottom: 0%;
 }
 
 .text {
@@ -86,7 +95,6 @@ body {
 	padding-left: 10px;
 	transition: 0.2s;
 }
-
 
 .keys.active {
 	background-color: #333;
@@ -167,7 +175,6 @@ body.active {
 
 .keys.keys_night.remove {
 	animation: keys_night_animation 0.5 forwards;
-	
 }
 
 @keyframes keys_night_animation {
@@ -205,11 +212,11 @@ body.active {
 	width: 100%;
 	height: 100%;
 }
-
+/* 
 .keys:hover {
 	background-color: #333;
 	color: #fff;
  }
  .keys:active {
 	background-color: #333;
- }
+ } */
