@@ -1,3 +1,138 @@
+let body = document.querySelector(".body");
+
+const container = document.createElement("div");
+container.classList.add('container');
+body.appendChild(container);
+body.insertBefore(container, body.firstChild);
+
+const keyboard_wrapp = document.createElement("div");
+keyboard_wrapp.classList.add('keyboard_wrapp');
+container.appendChild(keyboard_wrapp);
+
+const text_input = document.createElement('textarea');
+text_input.classList.add('text');
+text_input.setAttribute("autofocus", true);
+keyboard_wrapp.appendChild(text_input);
+
+const keyboard_keys = document.createElement('div');
+keyboard_keys.classList.add('keyboard_keys');
+keyboard_wrapp.appendChild(keyboard_keys);
+
+// Ряд 1
+const row1 = document.createElement("div");
+row1.classList.add("row");
+keyboard_keys.appendChild(row1);
+
+const backtick = createKey('keys', '`');
+const digit1 = createKey('keys', '1');
+const digit2 = createKey('keys', '2');
+const digit3 = createKey('keys', '3');
+const digit4 = createKey('keys', '4');
+const digit5 = createKey('keys', '5');
+const digit6 = createKey('keys', '6');
+const digit7 = createKey('keys', '7');
+const digit8 = createKey('keys', '8');
+const digit9 = createKey('keys', '9');
+const digit0 = createKey('keys', '0');
+const minus = createKey('keys', '-');
+const equal = createKey('keys', '=');
+const backspace = createKey('keys backspace_key', 'Backspace');
+
+row1.append(backtick, digit1, digit2, digit3, digit4, digit5, digit6, digit7, digit8, digit9, digit0, minus, equal, backspace);
+
+// Ряд 2
+const row2 = document.createElement("div");
+row2.classList.add("row");
+keyboard_keys.appendChild(row2);
+
+const tabs = createKey('keys tab_key', 'Tab');
+const keyQ = createKey('keys', 'Q');
+const keyW = createKey('keys', 'W');
+const keyE = createKey('keys', 'E');
+const keyR = createKey('keys', 'R');
+const keyT = createKey('keys', 'T');
+const keyY = createKey('keys', 'Y');
+const keyU = createKey('keys', 'U');
+const keyI = createKey('keys', 'I');
+const keyO = createKey('keys', 'O');
+const keyP = createKey('keys', 'P');
+const leftBracket = createKey('keys', '{');
+const rightBracket = createKey('keys', '}');
+const backslash = createKey('keys slash_key', '\\');
+
+row2.append(tabs, keyQ, keyW, keyE, keyR, keyT, keyY, keyU, keyI, keyO, keyP, leftBracket, rightBracket, backslash);
+
+// Ряд 3
+
+const row3 = document.createElement("div");
+row3.classList.add("row");
+keyboard_keys.appendChild(row3);
+
+const capsLock = createKey('keys caps_lock_key', 'Caps Lock');
+const keyA = createKey('keys', 'A');
+const keyS = createKey('keys', 'S');
+const keyD = createKey('keys', 'D');
+const keyF = createKey('keys', 'F');
+const keyG = createKey('keys', 'G');
+const keyH = createKey('keys', 'H');
+const keyJ = createKey('keys', 'J');
+const keyK = createKey('keys', 'K');
+const keyL = createKey('keys', 'L');
+const semicolon = createKey('keys', ';');
+const quote = createKey('keys', '"');
+const enter = createKey('keys enter_key', 'Enter');
+
+row3.append(capsLock, keyA, keyS, keyD, keyF, keyG, keyH, keyJ, keyK, keyL, semicolon, quote, enter);
+
+// ряд 4
+
+const row4 = document.createElement("div");
+row4.classList.add("row");
+keyboard_keys.appendChild(row4);
+
+const leftShift = createKey('keys shift_key shift_left', 'Shift');
+const keyZ = createKey('keys', 'Z');
+const keyX = createKey('keys', 'X');
+const keyC = createKey('keys', 'C');
+const keyV = createKey('keys', 'V');
+const keyB = createKey('keys', 'B');
+const keyN = createKey('keys', 'N');
+const keyM = createKey('keys', 'M');
+const comma = createKey('keys', ',');
+const period = createKey('keys', '.');
+const slash = createKey('keys', '/');
+const upArrow = createKey('keys', '\u2191');
+const rightShift = createKey('keys shift_key shift_right', 'Shift');
+
+row4.append(leftShift, keyZ, keyX, keyC, keyV, keyB, keyN, keyM, comma, period, slash, upArrow, rightShift);
+
+// ряд 5
+
+const row5 = document.createElement("div");
+row5.classList.add("row");
+keyboard_keys.appendChild(row5);
+
+const leftCtrl = createKey('keys ctrl_key ctrl_left', 'Ctrl');
+const win = createKey('keys win_key', 'Win');
+const leftAlt = createKey('keys alt_key alt_left', 'Alt');
+const space = createKey('keys space_key', '\u0020');
+const leftArrow = createKey('keys arrow_left', '\u2190');
+const uparrow = createKey('keys arrow_up', '\u2191');
+const downArrow = createKey('keys arrow_down', '\u2193');
+const rightArrow = createKey('keys arrow_right', '\u2192');
+const rightAlt = createKey('keys alt_key alt_right', 'Alt');
+const del = createKey('keys dell_key', 'Del')
+const rightCtrl = createKey('keys ctrl_key ctrl_right', 'Ctrl');
+
+row5.append(leftCtrl, win, leftAlt, space, leftArrow, uparrow, downArrow, rightArrow, rightAlt, del, rightCtrl);
+
+function createKey(selector, text) {
+	const keyElement = document.createElement('button');
+	keyElement.setAttribute("class", selector);
+	keyElement.textContent = text;
+	return keyElement;
+}
+
 let keys = document.querySelectorAll('.keys');
 let backspace_key = document.querySelector(".backspace_key")
 let tab = document.querySelector(".tab_key")
@@ -9,23 +144,13 @@ let enter_key = document.querySelector(".enter_key");
 let ctrl_left = document.querySelector(".ctrl_left");
 let ctrl_right = document.querySelector(".ctrl_right");
 let win_key = document.querySelector('.win_key');
-/* let alt_key =document.querySelector(".alt_key ") */
 let alt_left = document.querySelector('.alt_left');
 let alt_right = document.querySelector('.alt_right');
-let toggle_circle = document.querySelector(".toggle_circle");
-let night_mode = document.querySelector(".night_mode");
-let body = document.querySelector("body");
-let text_input = document.querySelector(".text");
-let change_color = document.querySelector(".change_light_color");
-let colors_input = document.querySelector(".colors_input");
-let keyboard_lights = document.querySelector(".keyboard_lights");
-let keyboard_wrapp = document.querySelector(".keyboard_wrapp");
 let arrow_left = document.querySelector(".arrow_left");
 let arrow_up = document.querySelector(".arrow_up");
 let arrow_down = document.querySelector(".arrow_down");
 let arrow_right = document.querySelector(".arrow_right");
 let dell_key = document.querySelector(".dell_key");
-
 /* console.log(keys);
 console.log(spaceKey);
 console.log(shift_left);
@@ -107,7 +232,6 @@ const сyrillic = [
 	{ qname: "Ctrl", qlowname: "Ctrl" }
 ]
 
-
 for (let i = 0; i < keys.length; i++) {
 	// устанавливаем два атрибута
 	keys[i].setAttribute('keyname', keys[i].innerText);
@@ -119,7 +243,7 @@ for (let i = 0; i < keys.length; i++) {
 window.addEventListener('keydown', function (e) {
 	for (let i = 0; i < keys.length; i++) {
 		console.log(e.key) // проверка всех клавиш
-		if (e.key == keys[i].getAttribute('keyname') || e.key == keys[i].getAttribute('lowerCaseName') || e.key == keys[i].getAttribute('qkeyname') || e.key == keys[i].getAttribute('qlowerCaseName') ) {
+		if (e.key == keys[i].getAttribute('keyname') || e.key == keys[i].getAttribute('lowerCaseName') || e.key == keys[i].getAttribute('qkeyname') || e.key == keys[i].getAttribute('qlowerCaseName')) {
 			keys[i].classList.add('active')
 		}
 		if (e.code == 'Space') {
@@ -150,9 +274,7 @@ window.addEventListener('keydown', function (e) {
 		if (e.code === 'AltRight') {
 			alt_right.classList.add("active");
 		}
-		/* if (e.code === 'Tab') {
-			tab.classList.add("active");
-		} */
+		
 		if (e.key === "Tab") {
 			e.preventDefault();
 			const currentIndent = parseInt(window.getComputedStyle(text_input).getPropertyValue('text-indent'), 10);
@@ -216,7 +338,6 @@ window.addEventListener('keyup', function (e) {
 		}
 
 		if (e.code === 'AltRight') {
-
 			alt_right.classList.remove("active");
 			alt_right.classList.remove("remove");
 		}
@@ -251,27 +372,6 @@ window.addEventListener('keyup', function (e) {
 	}
 })
 
-night_mode.addEventListener("click", function () {
-	toggle_circle.classList.toggle("active");
-	body.classList.toggle("active");
-	night_mode.classList.toggle("active");
-	keyboard_wrapp.classList.toggle("active");
-	text_input.classList.toggle("active");
-	text_input.classList.toggle("active");
-	change_color.classList.toggle("active");
-	for (let i = 0; i < keys.length; i++) {
-		keys[i].classList.toggle("keys_night");
-	}
-})
-
-colors_input.addEventListener("input", function () {
-	for (let i = 0; i < keys.length; i++) {
-		keys[i].style.color = colors_input.value
-	}
-	keyboard_lights.style.background = colors_input.value;
-})
-
-
 for (let i = 0; i < keys.length; i++) {
 	keys[i].addEventListener('click', function () {
 		let key = keys[i].getAttribute('keyname');
@@ -279,9 +379,7 @@ for (let i = 0; i < keys.length; i++) {
 			text_input.value += ""
 		} else {
 			text_input.value += key;
-
 		}
-
 	});
 }
 for (let i = 0; i < keys.length; i++) {
