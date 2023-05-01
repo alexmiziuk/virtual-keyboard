@@ -232,6 +232,7 @@ window.addEventListener('keydown', function (e) {
 		console.log(e.key) // проверка всех клавиш
 		if (e.key == keys[i].getAttribute('keyname') || e.key == keys[i].getAttribute('lowerCaseName') || e.key == keys[i].getAttribute('qkeyname') || e.key == keys[i].getAttribute('qlowerCaseName')) {
 			keys[i].classList.add('active')
+			
 		}
 		if (e.code == 'Space') {
 			spaceKey.classList.add("active")
@@ -364,9 +365,10 @@ window.addEventListener('keyup', function (e) {
 
 for (let i = 0; i < keys.length; i++) {
 	keys[i].addEventListener('mousedown', function () {
+		
 		let key = keys[i].getAttribute('keyname');
 		if (caps_lock_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || shift_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || tab.getAttribute('keyname') === keys[i].getAttribute('keyname') || ctrl_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || ctrl_right.getAttribute('keyname') === keys[i].getAttribute('keyname') || win_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || alt_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || alt_right.getAttribute('keyname') === keys[i].getAttribute('keyname') || enter_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || backspace_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_up.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_down.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_right.getAttribute('keyname') === keys[i].getAttribute('keyname') || dell_key.getAttribute('keyname') === keys[i].getAttribute('keyname')) {
-
+		
 			text_input.value += "";
 
 		} else {
@@ -382,6 +384,7 @@ for (let i = 0; i < keys.length; i++) {
 }
 
 spaceKey.addEventListener('click', function () {
+	text_input.focus();
 	text_input.value += ' ';
 });
 
@@ -414,6 +417,30 @@ shift_left.addEventListener('click', function () {
 shift_right.addEventListener('click', function () {
 	text_input.focus();
 });
+
+alt_left.addEventListener('click', function () {
+	text_input.focus();
+});
+alt_right.addEventListener('click', function () {
+	text_input.focus();
+});
+
+del.addEventListener('click', function () {
+	text_input.focus();
+});
+
+win_key.addEventListener('click', function () {
+	text_input.focus();
+});
+
+ctrl_left.addEventListener('click', function () {
+	text_input.focus();
+});
+
+ctrl_right.addEventListener('click', function () {
+	text_input.focus();
+});
+
 
 enter_key.addEventListener('click', function () {
 	text_input.focus();
@@ -534,9 +561,6 @@ document.addEventListener('keydown', function(event) {
 	}
 
 });
-
-
- 
 
 
 
