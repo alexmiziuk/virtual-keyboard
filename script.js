@@ -229,12 +229,16 @@ for (let i = 0; i < keys.length; i++) {
 
 window.addEventListener('keydown', function (e) {
 	for (let i = 0; i < keys.length; i++) {
-		console.log(e.key) // проверка всех клавиш
+		console.log(e.code) // проверка всех клавиш
 		if (e.key == keys[i].getAttribute('keyname') || e.key == keys[i].getAttribute('lowerCaseName') || e.key == keys[i].getAttribute('qkeyname') || e.key == keys[i].getAttribute('qlowerCaseName')) {
 			keys[i].classList.add('active')
 			
 		}
 		if (e.code == 'Space') {
+			spaceKey.classList.add("active")
+		}
+		if (e.code == 'Delete') {
+			e.preventDefault;
 			spaceKey.classList.add("active")
 		}
 		if (e.code == "ShiftLeft") {
