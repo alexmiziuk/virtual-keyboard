@@ -101,7 +101,7 @@ const keyM = createKey('keys', 'M');
 const comma = createKey('keys', ',');
 const period = createKey('keys', '.');
 const slash = createKey('keys', '/');
-const upArrow = createKey('keys', '\u2191');
+const upArrow = createKey('keys', ':)');
 const rightShift = createKey('keys shift_key shift_right', 'Shift');
 
 row4.append(leftShift, keyZ, keyX, keyC, keyV, keyB, keyN, keyM, comma, period, slash, upArrow, rightShift);
@@ -151,19 +151,7 @@ let arrow_up = document.querySelector(".arrow_up");
 let arrow_down = document.querySelector(".arrow_down");
 let arrow_right = document.querySelector(".arrow_right");
 let dell_key = document.querySelector(".dell_key");
-/* console.log(keys);
-console.log(spaceKey);
-console.log(shift_left);
-console.log(shift_right);
-console.log(caps_lock_key);
-console.log(toggle_circle);
-console.log(night_mode);
-console.log(body);
-console.log(text_input);
-console.log(change_color);
-console.log(colors_input);
-console.log(keyboard_lights);
- */
+
 const сyrillic = [
 	{ qname: "Ё", qlowname: "ё" },
 	{ qname: "1", qlowname: "1" },
@@ -233,7 +221,6 @@ const сyrillic = [
 ]
 
 for (let i = 0; i < keys.length; i++) {
-	// устанавливаем два атрибута
 	keys[i].setAttribute('keyname', keys[i].innerText);
 	keys[i].setAttribute('lowerCaseName', keys[i].innerText.toLowerCase());
 	keys[i].setAttribute('qkeyname', сyrillic[i].qname);
@@ -258,6 +245,7 @@ window.addEventListener('keydown', function (e) {
 		if (e.code == "CapsLock") {
 			caps_lock_key.classList.toggle("active");
 		}
+
 		if (e.code == "ControlLeft") {
 			ctrl_left.classList.add("active")
 		}
@@ -268,19 +256,21 @@ window.addEventListener('keydown', function (e) {
 			win_key.classList.add("active");
 		}
 		if (e.code === 'AltLeft') {
-			/* e.preventDefault(); */
+			e.preventDefault(); 
 			alt_left.classList.add("active");
 		}
 		if (e.code === 'AltRight') {
 			alt_right.classList.add("active");
 		}
-		
+
 		if (e.key === "Tab") {
 			e.preventDefault();
 			const currentIndent = parseInt(window.getComputedStyle(text_input).getPropertyValue('text-indent'), 10);
 			const newIndent = currentIndent + 20;
+			text_input.style.display = 'inline-block';
 			text_input.style.textIndent = newIndent + 'px';
 		}
+
 		if (e.code === 'Delete') {
 			dell_key.classList.add("active");
 		}
@@ -296,7 +286,6 @@ window.addEventListener('keydown', function (e) {
 		if (e.code === 'ArrowRight') {
 			arrow_right.classList.add("active");
 		}
-
 	}
 })
 
@@ -372,18 +361,17 @@ window.addEventListener('keyup', function (e) {
 	}
 })
 
+
 for (let i = 0; i < keys.length; i++) {
-	keys[i].addEventListener('click', function () {
+	keys[i].addEventListener('mousedown', function () {
 		let key = keys[i].getAttribute('keyname');
-		if (caps_lock_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || shift_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || tab.getAttribute('keyname') === keys[i].getAttribute('keyname') || ctrl_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || ctrl_right.getAttribute('keyname') === keys[i].getAttribute('keyname') || win_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || alt_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || alt_right.getAttribute('keyname') === keys[i].getAttribute('keyname') || enter_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || backspace_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_up.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_down.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_right.getAttribute('keyname') === keys[i].getAttribute('keyname')) {
-			text_input.value += ""
+		if (caps_lock_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || shift_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || tab.getAttribute('keyname') === keys[i].getAttribute('keyname') || ctrl_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || ctrl_right.getAttribute('keyname') === keys[i].getAttribute('keyname') || win_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || alt_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || alt_right.getAttribute('keyname') === keys[i].getAttribute('keyname') || enter_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || backspace_key.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_left.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_up.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_down.getAttribute('keyname') === keys[i].getAttribute('keyname') || arrow_right.getAttribute('keyname') === keys[i].getAttribute('keyname') || dell_key.getAttribute('keyname') === keys[i].getAttribute('keyname')) {
+
+			text_input.value += "";
+
 		} else {
 			text_input.value += key;
 		}
-	});
-}
-for (let i = 0; i < keys.length; i++) {
-	keys[i].addEventListener('mousedown', function () {
 		keys[i].style.backgroundColor = 'blue';
 		keys[i].style.color = 'white';
 	});
@@ -393,16 +381,13 @@ for (let i = 0; i < keys.length; i++) {
 	});
 }
 
-
-// add event listener to space key
 spaceKey.addEventListener('click', function () {
 	text_input.value += ' ';
 });
 
-// add event listener to caps lock key
 caps_lock_key.addEventListener('click', function () {
-	// toggle caps lock functionality
-	// ...
+	
+
 	caps_lock_key.classList.toggle("active");
 
 	for (let i = 0; i < keys.length; i++) {
@@ -421,28 +406,138 @@ caps_lock_key.addEventListener('click', function () {
 	}
 });
 
-// add event listener to shift keys
+
 shift_left.addEventListener('click', function () {
-	// activate shift functionality for next character/symbol pressed
-	// ...
+	text_input.focus();
 });
 
 shift_right.addEventListener('click', function () {
-	// activate shift functionality for next character/symbol pressed
-	// ...
+	text_input.focus();
 });
-
-// add event listener to shift keys
-backspace_key.addEventListener('click', function () {
-	// activate shift functionality for next character/symbol pressed
-	// ...
-
-	let inputText = text_input.value;
-	inputText = inputText.slice(0, -1);
-	text_input.value = inputText;
-});
-
 
 enter_key.addEventListener('click', function () {
+	text_input.focus();
 	text_input.value += '\n';
 });
+
+arrow_left.addEventListener('mousedown', function (event) {
+
+	event.preventDefault();
+	const currentCursorPosition = text_input.selectionStart;
+	const newCursorPosition = currentCursorPosition - 1;
+
+	text_input.setSelectionRange(newCursorPosition, newCursorPosition);
+});
+
+arrow_up.addEventListener('mousedown', function (event) {
+	event.preventDefault();
+	text_input.focus();
+	const currentCursorPosition = text_input.selectionStart;
+	const currentLine = text_input.value.substring(0, currentCursorPosition).split("\n").length - 1;
+	const newCursorPosition = text_input.value.substring(0, currentCursorPosition).lastIndexOf("\n", currentCursorPosition - 1) + 1;
+	const newLine = text_input.value.substring(0, newCursorPosition).split("\n").length - 1;
+	const lineDiff = currentLine - newLine;
+	const newLineCursorPosition = Math.min(currentCursorPosition - newCursorPosition, text_input.value.substring(newCursorPosition).indexOf("\n")) || text_input.value.length - newCursorPosition;
+	text_input.setSelectionRange(newCursorPosition + newLineCursorPosition, newCursorPosition + newLineCursorPosition);
+	window.scrollBy(0, -text_input.clientHeight * lineDiff);
+});
+
+arrow_down.addEventListener('mousedown', function (event) {
+	event.preventDefault();
+	const currentCursorPosition = text_input.selectionStart;
+	const currentLine = text_input.value.substring(0, currentCursorPosition).split("\n").length - 1;
+	const newCursorPosition = text_input.value.indexOf("\n", currentCursorPosition) + 1;
+	const newLine = text_input.value.substring(0, newCursorPosition).split("\n").length - 1;
+	const lineDiff = newLine - currentLine;
+	const newLineCursorPosition = Math.min(newCursorPosition - currentCursorPosition, text_input.value.substring(currentCursorPosition).indexOf("\n")) || text_input.value.length - currentCursorPosition;
+	text_input.setSelectionRange(newCursorPosition + newLineCursorPosition, newCursorPosition + newLineCursorPosition);
+	window.scrollBy(0, text_input.clientHeight * lineDiff);
+});
+
+arrow_right.addEventListener('mousedown', function (event) {
+	event.preventDefault();
+	const currentCursorPosition = text_input.selectionStart;
+	text_input.setSelectionRange(currentCursorPosition + 1, currentCursorPosition + 1);
+});
+
+enter_key.addEventListener('mousedown', function (event) {
+	event.preventDefault();
+	const currentCursorPosition = text_input.selectionStart;
+	const currentLine = text_input.value.substring(0, currentCursorPosition).split("\n").length - 1;
+	text_input.setRangeText('\n', currentCursorPosition, currentCursorPosition, 'end');
+
+	let newCursorPosition = currentCursorPosition + 1;
+	let newLine = currentLine + 1;
+	while (text_input.value.substring(newCursorPosition).indexOf("\n") !== -1) {
+		newCursorPosition += text_input.value.substring(newCursorPosition).indexOf("\n") + 1;
+		newLine++;
+	}
+	const lineDiff = newLine - currentLine;
+	text_input.setSelectionRange(newCursorPosition, newCursorPosition);
+	if (lineDiff > 0) {
+		window.scrollBy(0, text_input.clientHeight * lineDiff);
+	}
+});
+
+tab.addEventListener('mousedown', function (event) {
+	event.preventDefault();
+	text_input.focus();
+	const input = document.querySelector('.text');
+	const selectionStart = input.selectionStart;
+	const lines = input.value.substr(0, selectionStart).split('\n');
+	const currentLine = lines[lines.length - 1];
+	const newLine = ' '.repeat(4) + currentLine;
+	input.value = input.value.substr(0, selectionStart - currentLine.length) + newLine + input.value.substr(selectionStart);
+	input.selectionStart = input.selectionEnd = selectionStart + 4;
+});
+
+
+backspace_key.addEventListener('click', function (e) {
+	e.preventDefault();
+	text_input.focus();
+	const cursorPosition = text_input.selectionStart;
+	const inputText = text_input.value;
+	const textBeforeCursor = inputText.substring(0, cursorPosition - 1);
+	const textAfterCursor = inputText.substring(cursorPosition);
+	text_input.value = textBeforeCursor + textAfterCursor;
+	text_input.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+});
+
+
+function changeLanguage(language) {
+	/* language = "en" */
+ 
+ const keysl = document.querySelectorAll('.keys')
+  keysl.forEach(function(key) {
+    var latinValue = key.getAttribute("keyname");
+    var cyrillicValue = key.getAttribute("qkeyname");
+    if (language === "ru") {
+      key.textContent = cyrillicValue;
+    } 
+   if (language === "en") {
+      key.textContent = latinValue;
+    }
+  });
+} 
+
+
+
+document.addEventListener('keydown', function(event) {
+	if (event.shiftKey && event.altKey) {
+		changeLanguage("ru");
+
+	}
+	if (event.code == "ShiftRight" && event.code === 'AltLeft') {
+		event.preventDefault()
+		changeLanguage("en");
+
+	}
+
+});
+
+
+ 
+
+
+
+

@@ -31,6 +31,7 @@ body {
 
 .row {
   display: flex;
+  position: relative;
 }
 
 .keys {
@@ -67,7 +68,7 @@ body {
 }
 
 .shift_key {
-  width: 124px;
+  width: 130px;
 }
 
 .space_key {
